@@ -1,0 +1,259 @@
+/**
+ * Reddit Unfollow All - Panel Stilleri
+ * Glassmorphism tasarım dili
+ */
+
+#reddit-unfollow-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    color: #FFFFFF;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    z-index: 999999;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    user-select: none;
+    transition: opacity 0.3s ease, height 0.3s ease, padding 0.3s ease;
+    overflow: hidden;
+}
+
+#reddit-unfollow-panel.minimized {
+    height: 24px;
+    padding: 12px 20px;
+    width: 300px;
+}
+
+/* --- Header --- */
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: move;
+    height: 24px;
+}
+
+#reddit-unfollow-panel.minimized .panel-header {
+    margin-bottom: 0;
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FF4500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+}
+
+/* --- Window Controls --- */
+.window-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.ctrl-btn {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #B3B3B3;
+    transition: all 0.2s;
+}
+
+.ctrl-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+}
+
+.ctrl-btn.close-btn:hover {
+    background: #FF3333;
+    color: white;
+}
+
+.ctrl-btn.lang-btn {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 0 4px;
+    background: rgba(255, 69, 0, 0.3);
+    color: #FF4500;
+}
+
+.move-icon {
+    cursor: move;
+    font-size: 16px;
+}
+
+/* --- Panel Content --- */
+.panel-content {
+    transition: opacity 0.3s ease;
+}
+
+#reddit-unfollow-panel.minimized .panel-content {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --- Stats Grid --- */
+.stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #B3B3B3;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* --- Progress Bar --- */
+.progress-container {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #FF4500, #FF8C00);
+    transition: width 0.3s ease;
+}
+
+/* --- Controls --- */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* --- Micro-interactions & Polish --- */
+.btn {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Ripple Effect hint (optional implementation later) */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.btn:active::after {
+    width: 150%;
+    height: 150%;
+}
+
+.whitelist-search {
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.whitelist-search:focus {
+    border-color: #FF4500;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(255, 69, 0, 0.2);
+}
+
+.whitelist-row {
+    transition: transform 0.1s ease, background 0.2s ease;
+}
+
+.whitelist-row:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(2px);
+}
+
+/* Custom Checkbox */
+.keep-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.keep-checkbox:checked {
+    background: #FF4500;
+    border-color: #FF4500;
+}
+
+.keep-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.keep-checkbox:hover {
+    border-color: #FF4500;
+}
+
+/* Stat Card Hover */
+.stat-card {
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.15);
+}

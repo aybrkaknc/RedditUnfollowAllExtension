@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Reddit Unfollow All",
+  "version": "1.0.0",
+  "description": "Quickly unsubscribe from all your Reddit subreddits with a sleek UI panel.",
+  "author": "Antigravity (by Ayberk)",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.reddit.com/subreddits/*",
+    "*://*.reddit.com/user/*/communities/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.reddit.com/subreddits/*",
+        "*://*.reddit.com/user/*/communities/*"
+      ],
+      "js": ["src/content.js"],
+      "css": ["src/styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  }
+}
