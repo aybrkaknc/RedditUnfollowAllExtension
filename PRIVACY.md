@@ -10,8 +10,8 @@ We do **not** collect, store, or transmit any of your personal data.
 
 ## 2. Permissions
 The extension requests the following permissions for functional purposes only:
-- **Storage:** Used solely to save your local preferences (e.g., operation speed, whitelist selections) on your browser.
-- **Host Permissions (reddit.com):** Used to identify subscription buttons on the page and simulate clicks to unsubscribe as requested by you.
+
+- **Host Permissions (reddit.com):** The extension requires access to specific Reddit subscription pages (`reddit.com/subreddits/*` and `reddit.com/user/*/communities/*`) solely to identify and interact with the "Joined/Leave" buttons. This access is strictly limited to DOM manipulation necessary to automate the "unfollow" process initiated by the user. No user data is scraped, stored, or transmitted off the device.
 
 ## 3. Third-Party Services
 This extension does not use any third-party services, ads, or tracking cookies.

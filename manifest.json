@@ -9,10 +9,14 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "permissions": [
-    "activeTab",
-    "storage"
-  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "permissions": [],
   "host_permissions": [
     "*://*.reddit.com/subreddits/*",
     "*://*.reddit.com/user/*/communities/*"
@@ -23,8 +27,12 @@
         "*://*.reddit.com/subreddits/*",
         "*://*.reddit.com/user/*/communities/*"
       ],
-      "js": ["src/content.js"],
-      "css": ["src/styles.css"],
+      "js": [
+        "src/content.js"
+      ],
+      "css": [
+        "src/styles.css"
+      ],
       "run_at": "document_idle"
     }
   ],
